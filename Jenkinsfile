@@ -14,6 +14,7 @@ pipeline{
 			sh 'pwd'
 			sh 'cp -a /root/o2/. $(pwd)'
 			sh 'perl -i -pe\'s/\r$//;\' build.sh'
+			sh 'ls'
 			}
 		}
 	
@@ -21,7 +22,7 @@ pipeline{
 		steps{
 			sh 'chmod u+rwx *.sh'
 			sh './_build.sh'
-			input 'Container stopped ? (Click "Proceed" to continue)'
+			input 'Container stopped (Click "Proceed" to continue)'
 			}
 		}
 
