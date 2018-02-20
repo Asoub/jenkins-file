@@ -19,7 +19,7 @@ pipeline{
 	stage('build'){
 		steps{
 			sh 'chmod u+rwx *.sh' //TMP_TEST
-			//TMP_TEST sh './_build.sh'
+			sh './_build.sh'
 			}
 		}
 
