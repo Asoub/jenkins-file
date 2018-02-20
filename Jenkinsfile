@@ -20,9 +20,11 @@ pipeline{
 	
 	stage('build'){
 		steps{
+			sh 'ls'
 			sh 'chmod u+rwx *.sh'
+			input 'Container stopped 1'
 			sh './_build.sh'
-			input 'Container stopped (Click "Proceed" to continue)'
+			input 'Container stopped 2'
 			}
 		}
 
