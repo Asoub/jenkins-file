@@ -22,15 +22,14 @@ pipeline{
 		steps{
 			sh 'ls'
 			sh 'chmod u+rwx *.sh'
-			input 'Container stopped 1'
 			sh './_build.sh'
-			input 'Container stopped 2'
 			}
 		}
 
 	stage('unit-test'){
 		steps{
 			 sh '_unit-test.sh'
+			 input 'Container stopped 2'
 			}
 		}
 
