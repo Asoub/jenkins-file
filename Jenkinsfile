@@ -20,7 +20,7 @@ pipeline{
 	
 	stage('build'){
 		steps{
-			sh 'ls'
+			// sh 'ls'
 			sh 'chmod u+rwx *.sh'
 			sh './_build.sh'
 			}
@@ -28,6 +28,8 @@ pipeline{
 
 	stage('unit-test'){
 		steps{
+			sh 'ls'
+			input 'Container stopped 1'
 			 sh '_unit-test.sh'
 			 input 'Container stopped 2'
 			}
