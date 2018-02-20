@@ -19,22 +19,21 @@ pipeline{
 	
 	stage('build'){
 		steps{
-			sh 'chmod u+rwx build.sh'
-			sh './build.sh'
+			sh 'chmod u+rwx *.sh'
+			sh './_build.sh'
+			input 'Container stopped ? (Click "Proceed" to continue)'
 			}
 		}
 
 	stage('unit-test'){
 		steps{
-			echo 'no test yet'
-			 // sh 'yarn test'
+			 sh '_unit-test.sh'
 			}
 		}
 
 	stage('package'){
 		steps{
-			echo 'no package yet'
-			//sh './package.sh'
+			sh './_package.sh'
 			}
 		}
 
