@@ -13,7 +13,7 @@ pipeline{
 			// sh 'docker cp /home/o $(hostname):$(pwd)'
 			sh 'pwd'
 			sh 'cp -a /root/o2/. $(pwd)'
-			sh 'perl -i -pe\'s/\r$//;\' build.sh'
+			sh 'perl -i -pe\'s/\r$//;\' *.sh'
 			sh 'ls'
 			}
 		}
