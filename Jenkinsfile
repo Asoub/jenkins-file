@@ -8,29 +8,24 @@ pipeline{
  stages {
 	stage('proxy'){
 		steps{
-			//A tester
-			//hostname = container id
-			// sh 'docker cp /home/o $(hostname):$(pwd)'
+			//TMP_TEST
 			sh 'pwd'
 			sh 'cp -a /root/o2/. $(pwd)'
-			sh 'perl -i -pe\'s/\r$//;\' *.sh'
+			sh 'perl -i -pe\'s/\r$//;\' *.sh' //dos2unix
 			sh 'ls'
 			}
 		}
 	
 	stage('build'){
 		steps{
-			// sh 'ls'
-			sh 'chmod u+rwx *.sh'
-			sh './_build.sh'
+			sh 'chmod u+rwx *.sh' //TMP_TEST
+			//TMP_TEST sh './_build.sh'
 			}
 		}
 
 	stage('unit-test'){
 		steps{
-			sh 'ls'
-			input 'Container stopped 1'
-			 sh '_unit-test.sh'
+			 sh './_unit-test.sh'
 			 input 'Container stopped 2'
 			}
 		}
