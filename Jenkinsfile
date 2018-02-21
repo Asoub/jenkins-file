@@ -15,19 +15,19 @@ pipeline{
 			sh 'ls'
 			}
 		}
-	
-	stage('build'){
-		steps{
-			sh 'chmod u+rwx *.sh' //TMP_TEST
-			sh './_build.sh'
-			}
-		}
-
+		
 	stage('unit-test'){
 		steps{
 			 input 'Container stopped 1'
 			 sh './_unit-test.sh'
 			 input 'Container stopped 2'
+			}
+		}
+	
+	stage('build'){
+		steps{
+			sh 'chmod u+rwx *.sh' //TMP_TEST
+			sh './_build.sh'
 			}
 		}
 
