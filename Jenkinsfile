@@ -18,9 +18,9 @@ pipeline{
 		
 	stage('unit-test'){
 		steps{
-			 input 'Container stopped 1'
+			 // input 'Container stopped 1'
 			 sh './_unit-test.sh'
-			 input 'Container stopped 2'
+			 // input 'Container stopped 2'
 			}
 		}
 	
